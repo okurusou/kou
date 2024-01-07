@@ -9,6 +9,9 @@ public class Ex8_12_1 {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		System.out.println(method2());
+		System.out.println(method3());
 	}
 	
 	
@@ -21,8 +24,30 @@ public class Ex8_12_1 {
 			throw e;
 //			return 1;  // throw 이후의 문장이므로 에러
 		} finally {
-			System.out.println("finally블럭 실행");  // finally블럭은 어떠한 경우에도 실행되며 순서는, try-catch-finally
+			System.out.println("finally블럭 실행"); // finally블럭은 어떠한 경우에도 실행되며 순서는, try-catch-finally
 		}
 	}
 	
+	public static int method2() {
+        try {
+            return 10;
+        } catch (Exception e) {
+            return 30;
+        } finally {
+            return 20;// no return
+        }
+//        return 40; // 불가능
+	}
+	
+	static int method3() {
+		try {
+			int a = 1/0;
+//			throw new ArithmeticException();  // 위 문장과 동일하지만 컴파일러는 다르게 감지함
+			return 0;
+		} catch (Exception e) {
+			return 1;
+		} finally {
+			
+		}
+	}
 }
